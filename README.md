@@ -2,6 +2,11 @@ Locker Decrypter
 ================
 
 
+License
+-------
+Public domain
+
+
 What is this about?
 -------------------
 
