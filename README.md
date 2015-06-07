@@ -42,9 +42,9 @@ First you have to dig either RSA public key or Bitcoin address from vitcim's
 computer. The files containing relevant information typically reside in
 C:\ProgramData\rkcl directory.
 
-data.aa0 - Contains list of encrypted files
-data.aa6 - Contains the bitcoin address
-data.aa7 - Contains the public key
+* data.aa0 - Contains list of encrypted files
+* data.aa6 - Contains the bitcoin address
+* data.aa7 - Contains the public key
 
 Use either RSA public key or Bitcoin address to find the private key from the
 csv-file referred above and to save it to file private\_key.xml:
