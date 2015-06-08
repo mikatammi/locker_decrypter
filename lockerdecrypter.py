@@ -74,14 +74,16 @@ def decrypt_directory(directory_to_decrypt, rsa_cipher):
             full_filepath = os.path.join(root, filename)
             full_filepath_decrypted = full_filepath + '.decrypted'
 
-            # Try to decrypt the file
-            try:
-                decrypt_file(full_filepath, full_filepath_decrypted, rsa_cipher)
-                os.rename(full_filepath, full_filepath + '.orig')
-                os.rename(full_filepath_decrypted, full_filepath)
-                print(full_filepath + ' decrypted')
-            except DecryptError:
-                print(full_filepath + ' could not decrypt')
+            # Do not try to decrypt symlinks
+            if not os.path.islink(full_filepath):
+                # Try to decrypt the file
+                try:
+                    decrypt_file(full_filepath, full_filepath_decrypted, rsa_cipher)
+                    os.rename(full_filepath, full_filepath + '.orig')
+                    os.rename(full_filepath_decrypted, full_filepath)
+                    print(full_filepath + ' decrypted')
+                except DecryptError:
+                    print(full_filepath + ' could not decrypt')
 
 
 if __name__ == "__main__":
